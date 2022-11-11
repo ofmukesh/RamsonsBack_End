@@ -16,11 +16,12 @@ class StandardResultsSetPagination(PageNumberPagination):
                 'page_size': self.page.paginator.per_page,
                 'start_index': self.page.start_index(),
                 'end_index': self.page.end_index(),
-                'has_next': self.page.has_next(),
-                'has_pre': self.page.has_previous(),
-                'links': {
-                    'next': self.get_next_link(),
-                    'previous': self.get_previous_link()
-                }},
+                # 'has_next': self.page.has_next(),
+                # 'has_pre': self.page.has_previous(),
+                # 'links': {
+                #     'next': self.get_next_link(),
+                #     'previous': self.get_previous_link()
+                # }
+            },
             'results': data
         })

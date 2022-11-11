@@ -2,24 +2,28 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
+
+
 class PermissionModel(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     # Main data
+    register_user = models.BooleanField(default=False, null=True)
+    modify_permission = models.BooleanField(default=False, null=True)
     dashboard = models.BooleanField(null=True)
-    company = models.BooleanField('Company',null=True)
+    company = models.BooleanField('Company', null=True)
     create_company = models.BooleanField(null=True)
     company_table = models.BooleanField(null=True)
     inward = models.BooleanField(null=True)
     inward_form = models.BooleanField(null=True)
-    vehicle_entry    = models.BooleanField(null=True)
+    vehicle_entry = models.BooleanField(null=True)
     mother_table = models.BooleanField(null=True)
     slitted_table = models.BooleanField(null=True)
     pipe_inward = models.BooleanField(null=True)
     planning = models.BooleanField(null=True)
     coil_planning = models.BooleanField(null=True)
     slitt_plan = models.BooleanField(null=True)
-    polish_plan= models.BooleanField(null=True)
-    coil_plan= models.BooleanField(null=True)
+    polish_plan = models.BooleanField(null=True)
+    coil_plan = models.BooleanField(null=True)
     pipe_planning = models.BooleanField(null=True)
     slitting = models.BooleanField(null=True)
     pipe = models.BooleanField(null=True)
@@ -56,6 +60,6 @@ class PermissionModel(models.Model):
     challan = models.BooleanField(null=True)
     pc_pipe = models.BooleanField(null=True)
     download = models.BooleanField(null=True)
-    
+
     def __str__(self):
         return self.user.username

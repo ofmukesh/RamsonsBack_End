@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 class PermissionModel(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     # Main data
+    admin = models.BooleanField(default=False, null=True)
     register_user = models.BooleanField(default=False, null=True)
     modify_permission = models.BooleanField(default=False, null=True)
     dashboard = models.BooleanField(null=True, default=False,)

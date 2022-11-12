@@ -11,7 +11,7 @@ class Permission_View(viewsets.ModelViewSet):
     serializer_class = Permission_Serializer
     queryset = PermissionModel.objects.all()
     filterset_fields = ['user']
-    pagination_class=None
+    pagination_class = None
 
 
 class Register(viewsets.ModelViewSet):
@@ -29,6 +29,11 @@ class Register(viewsets.ModelViewSet):
                 a = User(username=request.data['username'], email=email, password=make_password(
                     password=passw))
                 a.save()
+                print('user created')
+                res = User.objects.get(username=a)
+                b = PermissionModel(user=res)
+                b.save()
+                print('permission created')
             return Response("Registration success", status=status.HTTP_201_CREATED)
         else:
             raise ValidationError(

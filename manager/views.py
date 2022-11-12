@@ -1,17 +1,17 @@
-from rest_framework import viewsets, status
+from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-from django.contrib.auth.hashers import make_password
+from rest_framework import status, viewsets
 from rest_framework.response import Response
-from rest_framework import viewsets
-from manager.serializer import *
 from manager.models import *
+from manager.serializer import *
 
 
 class Permission_View(viewsets.ModelViewSet):
     serializer_class = Permission_Serializer
     queryset = PermissionModel.objects.all()
     filterset_fields = ['user']
+    pagination_class=None
 
 
 class Register(viewsets.ModelViewSet):

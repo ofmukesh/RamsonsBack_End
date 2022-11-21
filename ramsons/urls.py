@@ -1,18 +1,9 @@
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework import routers
-from company.views import ComapnyView
-from test.views import TestView
-from manager.views import Permission_View, Register
+from ramsons.router import router
 
 admin.site.site_header = "Ramsons Administration"
 admin.site.site_title = "Super Admin"
-
-router = routers.DefaultRouter()
-router.register(r"m", TestView, "test")
-router.register(r"permission", Permission_View, "permission")
-router.register(r"register", Register, "register")
-router.register(r"company", ComapnyView, "company")
 
 urlpatterns = [
     path('', include(router.urls)),

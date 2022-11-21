@@ -6,4 +6,5 @@ from .models import company
 class ComapnyView(viewsets.ModelViewSet):
     serializer_class = CompanySerializer
     queryset = company.objects.order_by('-update_on')
-    filterset_fields = {'id': ["in", "exact"], 'company_name': ["in", "exact"]}
+    filterset_fields = {'company_name': [
+        "in"], 'person_name': ['contains'],'phone_no':['contains'],'created_on':['range']}

@@ -14,7 +14,7 @@ def companyCode():
 class company(models.Model):
     created_on = models.DateTimeField(auto_now=True)
     update_on = models.DateTimeField(auto_now_add=True)
-    company_id = models.CharField(max_length=10, default=companyCode)
+    company_code = models.CharField(max_length=10, default=companyCode)
     person_name = models.CharField(max_length=50, blank=True)
     company_name = models.CharField(max_length=100, blank=True)
     gst_no = models.CharField(max_length=25, blank=True)
@@ -23,7 +23,7 @@ class company(models.Model):
     alternate_no = models.CharField(max_length=10, blank=True)
     address = models.CharField(max_length=255, blank=True)
     city = models.CharField(max_length=100, blank=True)
-    state = models.CharField(max_length=100, blank=False)
+    state = models.CharField(max_length=100, blank=True)
     pincode = models.CharField(max_length=6, blank=True)
     created_by = models.ForeignKey("auth.User",
                                    verbose_name=("Created By"),
